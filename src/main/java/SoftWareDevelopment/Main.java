@@ -19,6 +19,7 @@ public class Main {
         System.out.println("Bob index: " + idx);
         lab.showStudent(idx);
 
+
         lab.removeStudent(idx);
         lab.printListUsingWhile();
     }
