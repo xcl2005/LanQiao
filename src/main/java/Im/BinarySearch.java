@@ -20,21 +20,24 @@ public class BinarySearch {
     }
 
     public void dfsByStack(Node root) {
+        if (root == null) return;
+
         Stack<Node> stack = new Stack<>();
-        System.out.println(root.data);
         stack.push(root);
         while (!stack.isEmpty()) {
             Node node = stack.pop();
+            System.out.print(node.data + " "); // 访问节点
+
+            // 注意先压右节点，再压左节点（因为栈是后进先出）
+            if (node.right != null) {
+                stack.push(node.right);
+            }
             if (node.left != null) {
                 stack.push(node.left);
-                System.out.print(node.left.data + " ");
-            }
-            else if (node.right != null) {
-                stack.push(node.right);
-                System.out.print(node.right.data + " ");
             }
         }
     }
+
 
     public static void main(String[] args) {
 
